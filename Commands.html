@@ -1,0 +1,94 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>Commands.txt</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+
+        </style>
+  </head>
+  <body>
+    <p>
+      <em>
+        <strong>1.Before doing anything, it's recommended to update making sure everything will be working correctly</strong>
+      </em>
+    </p>
+    <p>sudo apt-get update
+sudo apt-get upgrade</p>
+    <p>
+      <em>
+        <strong>2.Install Dependecies</strong>
+      </em>
+    </p>
+    <p>sudo apt-get install build-essential libpcap-dev libpcre3-dev libdnet-dev zlib1g-dev libluajit-5.1-dev openssl libssl-dev
+sudo apt-get install libdaq-dev libdaq2 libhwloc-dev cmake</p>
+    <p>
+      <em>
+        <strong>3. Install Snort</strong>
+      </em>
+    </p>
+    <p>sudo apt-get install snort</p>
+    <p>
+      <em>
+        <strong>4. Check Snort Installation</strong>
+      </em>
+    </p>
+    <p>snort -V or snort --version</p>
+    <p>
+      <em>
+        <strong>5.Configure Snort</strong>
+      </em>
+sudo nano /etc/snort/snort.conf</p>
+    <p>YOU MAY NEED TO SET UP YOUR NETWORK VARIABLES :</p>
+    <p>var HOME_NET [your_network_ip_range] - <strong>Refer to the Screenshots</strong></p>
+    <p>var EXTERNAL_NET any</p>
+    <p>
+      <em>
+        <strong>6. Test Snort Configuration</strong>
+      </em>
+sudo snort -T -c /etc/snort/snort.conf</p>
+    <p>
+      <em>
+        <strong>7. Running Snort in Packet Logging Mode</strong>
+      </em>
+    </p>
+    <p>sudo snort -dev -l /var/log/snort -i eth0</p>
+    <p>
+      <em>
+        <strong>8.Running Snort in IDS Mode</strong>
+      </em>
+    </p>
+    <p>sudo snort -A console -q -c /etc/snort/snort.conf -i eth0</p>
+    <p>
+      <em>
+        <strong>9. Installing DAQ for IPS Mode</strong>
+      </em>
+    </p>
+    <p>sudo apt-get install daq</p>
+    <p>
+      <em>
+        <strong>10. Set Up IP Tables for IPS Mode</strong>
+      </em>
+    </p>
+    <p>sudo iptables -A INPUT -j NFQUEUE --queue-num 0
+sudo iptables -A FORWARD -j NFQUEUE --queue-num 0</p>
+    <p>
+      <em>
+        <strong>11. Running Snort in IPS Mode</strong>
+      </em>
+    </p>
+    <p>sudo snort -A console -Q --daq nfq --daq-var queue=0 -c /etc/snort/snort.conf -i eth0</p>
+    <p>
+      <em>
+        <strong>12. STOP Snort</strong>
+      </em>
+    </p>
+    <p>Cnrl + C</p>
+  </body>
+</html>
