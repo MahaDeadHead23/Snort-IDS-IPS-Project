@@ -23,6 +23,10 @@ Installation
         sudo apt-get install build-essential libpcap-dev libpcre3-dev libdnet-dev zlib1g-dev libluajit-5.1-dev openssl libssl-dev
         sudo apt-get install libdaq-dev libdaq2 libhwloc-dev cmake
 
+
+                                       
+![Screenshot 2024-10-08 110215](https://github.com/user-attachments/assets/9307dddd-3472-4a0c-b7aa-24d032ecd269)
+
 3. Install Snort
         sudo apt-get install snort
 
